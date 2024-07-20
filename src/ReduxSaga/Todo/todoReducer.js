@@ -1,4 +1,8 @@
-import { FETCH_TODOS_FAILURE, FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS } from "./todoAction";
+import {
+  FETCH_TODOS_FAILURE,
+  FETCH_TODOS_REQUEST,
+  FETCH_TODOS_SUCCESS,
+} from "./todoAction";
 
 const initialState = {
   allTodos: [],
@@ -21,9 +25,9 @@ const todoReducer = (state = initialState, action) => {
     case FETCH_TODOS_FAILURE:
       return {
         ...state,
-        loading : false,
-        error : action.payload
-      }
+        loading: false,
+        error: action.payload,
+      };
 
     default:
       return state;

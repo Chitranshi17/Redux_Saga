@@ -1,11 +1,12 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { fetchTodosAPI } from "./todoService";
-import { FETCH_TODOS_REQUEST, fetchTodoFailure, fetchTodoSuccess } from "./todoAction";
+import { FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS, fetchTodoFailure, fetchTodoSuccess } from "./todoAction";
 
 function* fetchTodoSaga() {
   try {
     const response = yield call(fetchTodosAPI);
-    yield put(fetchTodoSuccess(response.data));
+    // yield put(fetchTodoSuccess(response.data));
+    yield put(FETCH_TODOS_SUCCESS, response)
   } catch (error) {
     yield put(fetchTodoFailure(error.message));
   }
